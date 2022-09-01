@@ -154,7 +154,7 @@ class FilterComponent {
         const filterResultSort = {};
         for (const { filterData } of this.filterConfig) {
             for (const key in filterData) {
-                if (Object.prototype.hasOwnProperty.call(filterData, key) && filterData[key]) {
+                if (Object.prototype.hasOwnProperty.call(filterData, key) && (filterData[key] || filterData[key] === false)) {
                     if (filterData["type"] === 'date') {
                         filterResultDate[filterData["key"]] = {
                             operator: filterData["operator"],
