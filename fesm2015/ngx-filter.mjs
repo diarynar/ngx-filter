@@ -183,7 +183,6 @@ class FilterComponent {
     }
     onRefresh() {
         this.filterConfigDisplay = JSON.parse(JSON.stringify(this.filterConfig));
-        console.log('this.filterConfigDisplay', this.filterConfigDisplay);
         this.onApplyFilter();
     }
     onApplyFilter() {
@@ -209,7 +208,6 @@ class FilterComponent {
                 }
             }
         }
-        console.log('this.filterConfigDisplay', this.filterConfigDisplay);
         const dataFilteredByEquality = _.filter(this.datas, filterResultEquality);
         const dataFilteredByDate = _.chain(dataFilteredByEquality).filter((data) => {
             let isTrue = true;
