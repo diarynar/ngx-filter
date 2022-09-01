@@ -1,0 +1,7 @@
+/*
+ * Public API Surface of ngx-filter
+ */
+export * from './interface/FilterInterface';
+export * from './lib/filter.component';
+export * from './lib/filter.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3Byb2plY3RzL2ZpbHRlci9zcmMvcHVibGljLWFwaS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRztBQUNILGNBQWMsNkJBQTZCLENBQUM7QUFDNUMsY0FBYyx3QkFBd0IsQ0FBQztBQUN2QyxjQUFjLHFCQUFxQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLypcclxuICogUHVibGljIEFQSSBTdXJmYWNlIG9mIG5neC1maWx0ZXJcclxuICovXHJcbmV4cG9ydCAqIGZyb20gJy4vaW50ZXJmYWNlL0ZpbHRlckludGVyZmFjZSc7XHJcbmV4cG9ydCAqIGZyb20gJy4vbGliL2ZpbHRlci5jb21wb25lbnQnO1xyXG5leHBvcnQgKiBmcm9tICcuL2xpYi9maWx0ZXIubW9kdWxlJzsgIl19
