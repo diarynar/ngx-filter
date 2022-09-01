@@ -1,5 +1,5 @@
 interface IOptions {
-    value: string;
+    value: string | boolean;
     label: string;
 }
 interface Idate {
@@ -11,7 +11,7 @@ interface Idate {
 interface ISelect {
     type: "select";
     key: string;
-    value: string | number;
+    value: string | number | boolean;
     options: IOptions[];
     label?: string;
 }
@@ -27,7 +27,7 @@ export interface IFilterConfiguration {
 export interface IFilterConfig {
     type: "select" | "date" | "sort";
     key: string;
-    value?: string | number;
+    value?: string | number | boolean;
     label?: string;
     options?: IOptions[];
     operator?: 'gte' | 'lte' | 'eq';
