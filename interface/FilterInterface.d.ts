@@ -1,21 +1,21 @@
-interface IOptions {
+export interface IOptions {
     value: string | boolean;
     label: string;
 }
-interface Idate {
+export interface Idate {
     type: "date";
     key: string;
     operator: 'gte' | 'lte' | 'eq';
     label?: string;
 }
-interface ISelect {
+export interface ISelect {
     type: "select";
     key: string;
     value: string | number | boolean;
     options: IOptions[];
     label?: string;
 }
-interface ISort {
+export interface ISort {
     type: "sort";
     key: string;
     value: 'asc' | 'desc';
@@ -32,4 +32,3 @@ export interface IFilterConfig {
     options?: IOptions[];
     operator?: 'gte' | 'lte' | 'eq';
 }
-export {};
