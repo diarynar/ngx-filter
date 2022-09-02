@@ -11,7 +11,7 @@ export declare class FilterComponent implements OnInit {
     onSort: EventEmitter<any>;
     onFilter: EventEmitter<any>;
     constructor(dateAdapter: DateAdapter<any>);
-    filterConfigDisplay: any[];
+    filterConfigBackup: any[];
     ngOnInit(): void;
     onSortChange(item: any): void;
     onRefresh(): void;
