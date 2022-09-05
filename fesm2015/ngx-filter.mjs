@@ -430,7 +430,7 @@ AppComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: AppComponent, 
             i0.ɵɵadvance(1);
             i0.ɵɵproperty("ngIf", ctx.searchType === "search-text");
         }
-    }, styles: [""] });
+    }, directives: [i2.NgIf, FilterComponent, ExpandableSearchComponent], styles: [""] });
 (function () {
     (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AppComponent, [{
             type: Component,
@@ -547,8 +547,6 @@ FilterModule.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ providers: [MatDatepi
             MatNativeDateModule,
             MatBottomSheetModule], exports: [AppComponent] });
 })();
-i0.ɵɵsetComponentScope(AppComponent, [i2.NgIf, FilterComponent,
-    ExpandableSearchComponent], []);
 
 /*
  * Public API Surface of ngx-filter

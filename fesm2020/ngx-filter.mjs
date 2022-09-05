@@ -381,7 +381,7 @@ AppComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: AppComponent, 
         i0.ɵɵproperty("ngIf", ctx.searchType === "search-group");
         i0.ɵɵadvance(1);
         i0.ɵɵproperty("ngIf", ctx.searchType === "search-text");
-    } }, styles: [""] });
+    } }, directives: [i2.NgIf, FilterComponent, ExpandableSearchComponent], styles: [""] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AppComponent, [{
         type: Component,
         args: [{ selector: 'ngx-filter', template: "<ngx-filter-group *ngIf=\"searchType==='search-group'\" [filterConfig]=\"filterConfig\" [lang]=\"lang\"\r\n  (onFilter)=\"onFilterData($event)\" [datas]=\"datas\" [withRefresh]=\"withRefresh\">\r\n</ngx-filter-group>\r\n<ngx-expandable-search *ngIf=\"searchType==='search-text'\" [lang]=\"lang\" (onSearch)=\"onFilterData($event)\"\r\n  [datas]=\"datas\">\r\n</ngx-expandable-search>", styles: [""] }]
@@ -490,8 +490,6 @@ FilterModule.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ providers: [MatDatepi
         MatDatepickerModule,
         MatNativeDateModule,
         MatBottomSheetModule], exports: [AppComponent] }); })();
-i0.ɵɵsetComponentScope(AppComponent, [i2.NgIf, FilterComponent,
-    ExpandableSearchComponent], []);
 
 /*
  * Public API Surface of ngx-filter
