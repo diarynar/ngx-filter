@@ -1,6 +1,6 @@
 import { EventEmitter, OnInit } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
-import { IFilterConfiguration } from '../../../interface/FilterInterface';
+import { IFilterConfiguration } from '../../../public-api';
 import * as i0 from "@angular/core";
 export declare class FilterComponent implements OnInit {
     private dateAdapter;

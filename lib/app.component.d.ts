@@ -1,5 +1,5 @@
 import { EventEmitter, OnInit } from '@angular/core';
-import { IFilterConfiguration } from 'projects/filter/src/public-api';
+import { IFilterConfiguration } from '../public-api';
 import * as i0 from "@angular/core";
 export declare class AppComponent implements OnInit {
     filterConfig: IFilterConfiguration[];
