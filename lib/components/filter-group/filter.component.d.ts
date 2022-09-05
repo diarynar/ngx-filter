@@ -1,6 +1,6 @@
 import { EventEmitter, OnInit } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
-import { IFilterConfiguration } from '../public-api';
+import { IFilterConfiguration } from 'projects/filter/src/public-api';
 import * as i0 from "@angular/core";
 export declare class FilterComponent implements OnInit {
     private dateAdapter;
@@ -17,5 +17,5 @@ export declare class FilterComponent implements OnInit {
     onRefresh(): void;
     onApplyFilter(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<FilterComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<FilterComponent, "ngx-filter", never, { "filterConfig": "filterConfig"; "lang": "lang"; "withRefresh": "withRefresh"; "datas": "datas"; }, { "onSort": "onSort"; "onFilter": "onFilter"; }, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<FilterComponent, "ngx-filter-group", never, { "filterConfig": "filterConfig"; "lang": "lang"; "withRefresh": "withRefresh"; "datas": "datas"; }, { "onSort": "onSort"; "onFilter": "onFilter"; }, never, never>;
 }
