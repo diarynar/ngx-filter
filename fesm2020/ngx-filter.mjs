@@ -290,8 +290,8 @@ class ExpandableSearchComponent {
         }
         else {
             setTimeout(() => {
-                this.searchElement.nativeElement.focus();
-            }, 1000);
+                this.searchElement?.nativeElement?.focus();
+            }, 500);
         }
     }
     search(text) {
