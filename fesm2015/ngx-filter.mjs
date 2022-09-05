@@ -25,23 +25,8 @@ import * as i3$1 from 'nowboard-icon';
 import { NowboardIconModule } from 'nowboard-icon';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { CdkTableModule } from '@angular/cdk/table';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 function FilterComponent_ng_container_2_ng_container_2_mat_option_5_Template(rf, ctx) {
     if (rf & 1) {
@@ -277,76 +262,6 @@ FilterComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: FilterCompo
             }] });
 })();
 
-function AppComponent_ngx_filter_group_0_Template(rf, ctx) {
-    if (rf & 1) {
-        const _r3 = i0.ɵɵgetCurrentView();
-        i0.ɵɵelementStart(0, "ngx-filter-group", 2);
-        i0.ɵɵlistener("onFilter", function AppComponent_ngx_filter_group_0_Template_ngx_filter_group_onFilter_0_listener($event) { i0.ɵɵrestoreView(_r3); const ctx_r2 = i0.ɵɵnextContext(); return ctx_r2.onFilterData($event); });
-        i0.ɵɵelementEnd();
-    }
-    if (rf & 2) {
-        const ctx_r0 = i0.ɵɵnextContext();
-        i0.ɵɵproperty("filterConfig", ctx_r0.filterConfig)("lang", ctx_r0.lang)("datas", ctx_r0.datas);
-    }
-}
-function AppComponent_ngx_expandable_search_1_Template(rf, ctx) {
-    if (rf & 1) {
-        const _r5 = i0.ɵɵgetCurrentView();
-        i0.ɵɵelementStart(0, "ngx-expandable-search", 3);
-        i0.ɵɵlistener("onSearch", function AppComponent_ngx_expandable_search_1_Template_ngx_expandable_search_onSearch_0_listener($event) { i0.ɵɵrestoreView(_r5); const ctx_r4 = i0.ɵɵnextContext(); return ctx_r4.onFilterData($event); });
-        i0.ɵɵelementEnd();
-    }
-    if (rf & 2) {
-        const ctx_r1 = i0.ɵɵnextContext();
-        i0.ɵɵproperty("lang", ctx_r1.lang)("datas", ctx_r1.datas);
-    }
-}
-class AppComponent {
-    constructor() {
-        this.filterConfig = [];
-        this.lang = "fr";
-        this.withRefresh = true;
-        this.searchType = 'search-group';
-        this.datas = [];
-        this.onFilter = new EventEmitter();
-    }
-    ngOnInit() {
-    }
-    onFilterData(e) {
-        this.onFilter.emit(e);
-    }
-}
-AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
-AppComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: AppComponent, selectors: [["ngx-filter"]], inputs: { filterConfig: "filterConfig", lang: "lang", withRefresh: "withRefresh", searchType: "searchType", datas: "datas" }, outputs: { onFilter: "onFilter" }, decls: 2, vars: 2, consts: [[3, "filterConfig", "lang", "datas", "onFilter", 4, "ngIf"], [3, "lang", "datas", "onSearch", 4, "ngIf"], [3, "filterConfig", "lang", "datas", "onFilter"], [3, "lang", "datas", "onSearch"]], template: function AppComponent_Template(rf, ctx) {
-        if (rf & 1) {
-            i0.ɵɵtemplate(0, AppComponent_ngx_filter_group_0_Template, 1, 3, "ngx-filter-group", 0);
-            i0.ɵɵtemplate(1, AppComponent_ngx_expandable_search_1_Template, 1, 2, "ngx-expandable-search", 1);
-        }
-        if (rf & 2) {
-            i0.ɵɵproperty("ngIf", ctx.searchType === "search-group");
-            i0.ɵɵadvance(1);
-            i0.ɵɵproperty("ngIf", ctx.searchType === "search-text");
-        }
-    }, styles: [""] });
-(function () {
-    (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AppComponent, [{
-            type: Component,
-            args: [{ selector: 'ngx-filter', template: "<ngx-filter-group *ngIf=\"searchType==='search-group'\" [filterConfig]=\"filterConfig\" [lang]=\"lang\"\r\n  (onFilter)=\"onFilterData($event)\" [datas]=\"datas\">\r\n</ngx-filter-group>\r\n<ngx-expandable-search *ngIf=\"searchType==='search-text'\" [lang]=\"lang\" (onSearch)=\"onFilterData($event)\"\r\n  [datas]=\"datas\">\r\n</ngx-expandable-search>", styles: [""] }]
-        }], null, { filterConfig: [{
-                type: Input
-            }], lang: [{
-                type: Input
-            }], withRefresh: [{
-                type: Input
-            }], searchType: [{
-                type: Input
-            }], datas: [{
-                type: Input
-            }], onFilter: [{
-                type: Output
-            }] });
-})();
-
 const _c0 = ["search"];
 function ExpandableSearchComponent_div_1_Template(rf, ctx) {
     if (rf & 1) {
@@ -465,6 +380,76 @@ ExpandableSearchComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: E
             }] });
 })();
 
+function AppComponent_ngx_filter_group_0_Template(rf, ctx) {
+    if (rf & 1) {
+        const _r3 = i0.ɵɵgetCurrentView();
+        i0.ɵɵelementStart(0, "ngx-filter-group", 2);
+        i0.ɵɵlistener("onFilter", function AppComponent_ngx_filter_group_0_Template_ngx_filter_group_onFilter_0_listener($event) { i0.ɵɵrestoreView(_r3); const ctx_r2 = i0.ɵɵnextContext(); return ctx_r2.onFilterData($event); });
+        i0.ɵɵelementEnd();
+    }
+    if (rf & 2) {
+        const ctx_r0 = i0.ɵɵnextContext();
+        i0.ɵɵproperty("filterConfig", ctx_r0.filterConfig)("lang", ctx_r0.lang)("datas", ctx_r0.datas)("withRefresh", ctx_r0.withRefresh);
+    }
+}
+function AppComponent_ngx_expandable_search_1_Template(rf, ctx) {
+    if (rf & 1) {
+        const _r5 = i0.ɵɵgetCurrentView();
+        i0.ɵɵelementStart(0, "ngx-expandable-search", 3);
+        i0.ɵɵlistener("onSearch", function AppComponent_ngx_expandable_search_1_Template_ngx_expandable_search_onSearch_0_listener($event) { i0.ɵɵrestoreView(_r5); const ctx_r4 = i0.ɵɵnextContext(); return ctx_r4.onFilterData($event); });
+        i0.ɵɵelementEnd();
+    }
+    if (rf & 2) {
+        const ctx_r1 = i0.ɵɵnextContext();
+        i0.ɵɵproperty("lang", ctx_r1.lang)("datas", ctx_r1.datas);
+    }
+}
+class AppComponent {
+    constructor() {
+        this.filterConfig = [];
+        this.lang = "fr";
+        this.withRefresh = true;
+        this.searchType = 'search-group';
+        this.datas = [];
+        this.onFilter = new EventEmitter();
+    }
+    ngOnInit() {
+    }
+    onFilterData(e) {
+        this.onFilter.emit(e);
+    }
+}
+AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
+AppComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: AppComponent, selectors: [["ngx-filter"]], inputs: { filterConfig: "filterConfig", lang: "lang", withRefresh: "withRefresh", searchType: "searchType", datas: "datas" }, outputs: { onFilter: "onFilter" }, decls: 2, vars: 2, consts: [[3, "filterConfig", "lang", "datas", "withRefresh", "onFilter", 4, "ngIf"], [3, "lang", "datas", "onSearch", 4, "ngIf"], [3, "filterConfig", "lang", "datas", "withRefresh", "onFilter"], [3, "lang", "datas", "onSearch"]], template: function AppComponent_Template(rf, ctx) {
+        if (rf & 1) {
+            i0.ɵɵtemplate(0, AppComponent_ngx_filter_group_0_Template, 1, 4, "ngx-filter-group", 0);
+            i0.ɵɵtemplate(1, AppComponent_ngx_expandable_search_1_Template, 1, 2, "ngx-expandable-search", 1);
+        }
+        if (rf & 2) {
+            i0.ɵɵproperty("ngIf", ctx.searchType === "search-group");
+            i0.ɵɵadvance(1);
+            i0.ɵɵproperty("ngIf", ctx.searchType === "search-text");
+        }
+    }, styles: [""] });
+(function () {
+    (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AppComponent, [{
+            type: Component,
+            args: [{ selector: 'ngx-filter', template: "<ngx-filter-group *ngIf=\"searchType==='search-group'\" [filterConfig]=\"filterConfig\" [lang]=\"lang\"\r\n  (onFilter)=\"onFilterData($event)\" [datas]=\"datas\" [withRefresh]=\"withRefresh\">\r\n</ngx-filter-group>\r\n<ngx-expandable-search *ngIf=\"searchType==='search-text'\" [lang]=\"lang\" (onSearch)=\"onFilterData($event)\"\r\n  [datas]=\"datas\">\r\n</ngx-expandable-search>", styles: [""] }]
+        }], null, { filterConfig: [{
+                type: Input
+            }], lang: [{
+                type: Input
+            }], withRefresh: [{
+                type: Input
+            }], searchType: [{
+                type: Input
+            }], datas: [{
+                type: Input
+            }], onFilter: [{
+                type: Output
+            }] });
+})();
+
 class FilterModule {
     constructor(parentModule) {
         if (parentModule) {
@@ -489,29 +474,14 @@ FilterModule.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ providers: [MatDatepi
             BrowserAnimationsModule,
             FormsModule,
             ReactiveFormsModule,
-            MatCheckboxModule,
             MatIconModule,
             MatSelectModule,
             MatInputModule,
-            MatChipsModule,
-            MatGridListModule,
-            MatRadioModule,
-            MatPaginatorModule,
-            CdkTableModule,
-            MatSortModule,
-            MatTableModule,
-            DragDropModule,
-            MatCardModule,
-            MatDialogModule,
-            MatStepperModule,
-            MatProgressBarModule,
             NowboardIconModule.forRoot({
                 disabled_color: "#5E7290",
                 primary: "#001B66"
             }),
             MatTooltipModule,
-            MatTabsModule,
-            MatSlideToggleModule,
             MatDatepickerModule,
             MatNativeDateModule,
             MatBottomSheetModule
@@ -534,29 +504,14 @@ FilterModule.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ providers: [MatDatepi
                         BrowserAnimationsModule,
                         FormsModule,
                         ReactiveFormsModule,
-                        MatCheckboxModule,
                         MatIconModule,
                         MatSelectModule,
                         MatInputModule,
-                        MatChipsModule,
-                        MatGridListModule,
-                        MatRadioModule,
-                        MatPaginatorModule,
-                        CdkTableModule,
-                        MatSortModule,
-                        MatTableModule,
-                        DragDropModule,
-                        MatCardModule,
-                        MatDialogModule,
-                        MatStepperModule,
-                        MatProgressBarModule,
                         NowboardIconModule.forRoot({
                             disabled_color: "#5E7290",
                             primary: "#001B66"
                         }),
                         MatTooltipModule,
-                        MatTabsModule,
-                        MatSlideToggleModule,
                         MatDatepickerModule,
                         MatNativeDateModule,
                         MatBottomSheetModule
@@ -585,24 +540,9 @@ FilterModule.ɵinj = /*@__PURE__*/ i0.ɵɵdefineInjector({ providers: [MatDatepi
             BrowserAnimationsModule,
             FormsModule,
             ReactiveFormsModule,
-            MatCheckboxModule,
             MatIconModule,
             MatSelectModule,
-            MatInputModule,
-            MatChipsModule,
-            MatGridListModule,
-            MatRadioModule,
-            MatPaginatorModule,
-            CdkTableModule,
-            MatSortModule,
-            MatTableModule,
-            DragDropModule,
-            MatCardModule,
-            MatDialogModule,
-            MatStepperModule,
-            MatProgressBarModule, i3$1.NowboardIconModule, MatTooltipModule,
-            MatTabsModule,
-            MatSlideToggleModule,
+            MatInputModule, i3$1.NowboardIconModule, MatTooltipModule,
             MatDatepickerModule,
             MatNativeDateModule,
             MatBottomSheetModule], exports: [AppComponent] });
