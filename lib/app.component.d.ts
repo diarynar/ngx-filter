@@ -8,12 +8,8 @@ export declare class AppComponent implements OnInit {
     searchType: 'search-group' | 'search-text';
     datas: any[];
     onFilter: EventEmitter<any>;
-    filterConfigBackup: any[];
     ngOnInit(): void;
     onFilterData(e: any): void;
-    onSortChange(item: any): void;
-    onRefresh(): void;
-    onApplyFilter(filterConfig: any): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<AppComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<AppComponent, "ngx-filter", never, { "filterConfig": "filterConfig"; "lang": "lang"; "withRefresh": "withRefresh"; "searchType": "searchType"; "datas": "datas"; }, { "onFilter": "onFilter"; }, never, never>;
 }
