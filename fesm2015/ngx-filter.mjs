@@ -425,7 +425,7 @@ class AppComponent {
     }
     refresh(e) {
         console.log('---------ON-REFRESH-------------', this.datas, e);
-        this.onRefresh.emit({ datas: this.datas });
+        this.onRefresh.emit({ datas: this.datas, filter: e.filter });
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
