@@ -164,9 +164,16 @@ class FilterComponent {
         this.onFilter = new EventEmitter();
         this.filterConfigBackup = [];
     }
+    ngAfterContentInit() {
+        console.log('-------------contentInit----------');
+    }
     ngOnInit() {
         this.dateAdapter.setLocale(this.lang);
+        console.log('-------------onInit----------');
+    }
+    ngAfterViewInit() {
         localStorage.setItem('ngx-filter', JSON.stringify(this.filterConfig));
+        console.log('-------------viewInit----------');
     }
     onSortChange(item) {
         item.value = item.value === 'asc' ? "desc" : 'asc';
