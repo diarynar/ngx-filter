@@ -162,7 +162,6 @@ class FilterComponent {
         this.datas = [];
         this.onSort = new EventEmitter();
         this.onFilter = new EventEmitter();
-        this.filterConfigBackup = "";
     }
     ngOnInit() {
         this.dateAdapter.setLocale(this.lang);
@@ -174,8 +173,11 @@ class FilterComponent {
         this.onApplyFilter();
     }
     onRefresh() {
-        this.filterConfig = JSON.parse(this.filterConfigBackup);
-        this.onApplyFilter();
+        console.log('--------FILTER STRING---------', this.filterConfigBackup);
+        if (this.filterConfigBackup) {
+            this.filterConfig = JSON.parse(this.filterConfigBackup);
+            this.onApplyFilter();
+        }
     }
     onApplyFilter() {
         const filterResultEquality = {};
