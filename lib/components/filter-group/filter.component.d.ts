@@ -11,11 +11,12 @@ export declare class FilterComponent implements OnInit {
     onSort: EventEmitter<any>;
     onFilter: EventEmitter<any>;
     constructor(dateAdapter: DateAdapter<any>);
-    filterConfigBackup: any;
+    filterConfigBackup: any[];
     ngOnInit(): void;
     onSortChange(item: any): void;
     onRefresh(): void;
     onApplyFilter(): void;
+    ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<FilterComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<FilterComponent, "ngx-filter-group", never, { "filterConfig": "filterConfig"; "lang": "lang"; "withRefresh": "withRefresh"; "datas": "datas"; }, { "onSort": "onSort"; "onFilter": "onFilter"; }, never, never>;
 }
