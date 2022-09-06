@@ -166,6 +166,7 @@ class FilterComponent {
     ngOnInit() {
         this.dateAdapter.setLocale(this.lang);
         this.filterConfigBackup = JSON.stringify(this.filterConfig);
+        console.log('--------------------BACKUP--------------------', this.filterConfig);
     }
     onSortChange(item) {
         item.value = item.value === 'asc' ? "desc" : 'asc';
