@@ -164,16 +164,9 @@ class FilterComponent {
         this.onFilter = new EventEmitter();
         this.filterConfigBackup = [];
     }
-    ngAfterContentInit() {
-        console.log('-------------contentInit----------');
-    }
     ngOnInit() {
         this.dateAdapter.setLocale(this.lang);
-        console.log('-------------onInit----------');
-    }
-    ngAfterViewInit() {
-        localStorage.setItem('ngx-filter', JSON.stringify(this.filterConfig));
-        console.log('-------------viewInit----------');
+        this.filterConfigBackup = _.cloneDeep(this.filterConfig);
     }
     onSortChange(item) {
         item.value = item.value === 'asc' ? "desc" : 'asc';
@@ -181,7 +174,7 @@ class FilterComponent {
         this.onApplyFilter();
     }
     onRefresh() {
-        this.filterConfig = JSON.parse(localStorage.getItem('ngx-filter'));
+        this.filterConfig = _.cloneDeep(this.filterConfigBackup);
         this.onApplyFilter();
     }
     onApplyFilter() {
@@ -233,9 +226,6 @@ class FilterComponent {
             return isTrue;
         }).value();
         this.onFilter.emit({ filter: filterResultEquality, datas: dataFilteredByDate });
-    }
-    ngOnDestroy() {
-        localStorage.removeItem('ngx-filter');
     }
 }
 FilterComponent.ɵfac = function FilterComponent_Factory(t) { return new (t || FilterComponent)(i0.ɵɵdirectiveInject(i1.DateAdapter)); };
