@@ -446,6 +446,7 @@ class AppComponent {
             if (e.type === 'group') {
                 this.configFilterGroup = [];
                 this.onFilterData(e);
+                this.onRefresh.emit(e);
                 this.filterConfig = JSON.parse(this.filterConfigRefresh);
             }
             else {
