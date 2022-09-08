@@ -28,6 +28,62 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
+const onApply = (filterConfig, datas) => {
+    try {
+        const filterResultEquality = {};
+        const filterResultDate = {};
+        const filterResultSort = {};
+        for (const { filterData } of filterConfig) {
+            for (const key in filterData) {
+                if (Object.prototype.hasOwnProperty.call(filterData, key) && filterData[key]) {
+                    if (filterData["type"] === 'date') {
+                        filterResultDate[`${filterData["key"]}-${filterData["operator"]}`] = {
+                            operator: filterData["operator"],
+                            value: filterData["value"],
+                            key: filterData["key"]
+                        };
+                    }
+                    else if (filterData["type"] === 'sort') {
+                        filterResultSort[filterData["key"]] = filterData["value"];
+                    }
+                    else if (!!filterData["value"] || filterData["value"] === false) {
+                        filterResultEquality[filterData["key"]] = filterData["value"];
+                    }
+                }
+            }
+        }
+        const dataFilteredByEquality = _.filter(datas, filterResultEquality);
+        const dataFilteredByDate = _.chain(dataFilteredByEquality).filter((data) => {
+            let isTrue = true;
+            for (const key in filterResultDate) {
+                const dataDate = new Date(data[filterResultDate[key]['key']]);
+                const filterDate = new Date(filterResultDate[key]["value"]);
+                dataDate.setHours(0, 0, 0, 0);
+                filterDate.setHours(0, 0, 0, 0);
+                if (filterResultDate[key]["value"]) {
+                    if (filterResultDate[key]["operator"] === 'gte' && dataDate.getTime() < filterDate.getTime()) {
+                        isTrue = false;
+                        return;
+                    }
+                    else if (filterResultDate[key]["operator"] === 'lte' && dataDate.getTime() > filterDate.getTime()) {
+                        isTrue = false;
+                        return;
+                    }
+                    else if (filterResultDate[key]["operator"] === 'eq' && dataDate.getTime() !== filterDate.getTime()) {
+                        isTrue = false;
+                        return;
+                    }
+                }
+            }
+            return isTrue;
+        }).value();
+        return { filter: filterResultEquality, datas: dataFilteredByDate, type: 'group' };
+    }
+    catch (error) {
+        return { filter: {}, datas: [], type: 'group' };
+    }
+};
+
 function FilterComponent_ng_container_2_ng_container_2_mat_option_5_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵelementStart(0, "mat-option", 8);
     i0.ɵɵtext(1);
@@ -154,57 +210,11 @@ class FilterComponent {
         this.onApplyFilter();
     }
     refresh() {
-        this.onRefresh.emit({ filter: this.filterConfigBackup, datas: this.datas });
+        this.onRefresh.emit({ filter: this.filterConfigBackup, datas: this.datas, type: 'group' });
     }
     onApplyFilter() {
-        const filterResultEquality = {};
-        const filterResultDate = {};
-        const filterResultSort = {};
-        for (const { filterData } of this.filterConfig) {
-            for (const key in filterData) {
-                if (Object.prototype.hasOwnProperty.call(filterData, key) && filterData[key]) {
-                    if (filterData["type"] === 'date') {
-                        filterResultDate[`${filterData["key"]}-${filterData["operator"]}`] = {
-                            operator: filterData["operator"],
-                            value: filterData["value"],
-                            key: filterData["key"]
-                        };
-                    }
-                    else if (filterData["type"] === 'sort') {
-                        filterResultSort[filterData["key"]] = filterData["value"];
-                    }
-                    else if (!!filterData["value"] || filterData["value"] === false) {
-                        filterResultEquality[filterData["key"]] = filterData["value"];
-                    }
-                }
-            }
-        }
-        const dataFilteredByEquality = _.filter(this.datas, filterResultEquality);
-        const dataFilteredByDate = _.chain(dataFilteredByEquality).filter((data) => {
-            let isTrue = true;
-            for (const key in filterResultDate) {
-                const dataDate = new Date(data[filterResultDate[key]['key']]);
-                const filterDate = new Date(filterResultDate[key]["value"]);
-                dataDate.setHours(0, 0, 0, 0);
-                filterDate.setHours(0, 0, 0, 0);
-                if (filterResultDate[key]["value"]) {
-                    if (filterResultDate[key]["operator"] === 'gte' && dataDate.getTime() < filterDate.getTime()) {
-                        isTrue = false;
-                        return;
-                    }
-                    else if (filterResultDate[key]["operator"] === 'lte' && dataDate.getTime() > filterDate.getTime()) {
-                        isTrue = false;
-                        return;
-                    }
-                    else if (filterResultDate[key]["operator"] === 'eq' && dataDate.getTime() !== filterDate.getTime()) {
-                        isTrue = false;
-                        return;
-                    }
-                }
-            }
-            return isTrue;
-        }).value();
-        this.onFilter.emit({ filter: filterResultEquality, datas: dataFilteredByDate });
+        const filterResult = onApply(this.filterConfig, this.datas);
+        this.onFilter.emit(filterResult);
     }
 }
 FilterComponent.ɵfac = function FilterComponent_Factory(t) { return new (t || FilterComponent)(i0.ɵɵdirectiveInject(i1.DateAdapter)); };
@@ -273,6 +283,7 @@ class ExpandableSearchComponent {
         this.closeIcon = 'close';
         this.closed = new EventEmitter();
         this.onSearch = new EventEmitter();
+        this.onRefresh = new EventEmitter();
         this.showField = false;
         this.searchText = "";
         this.searchUpdate = new Subject();
@@ -288,7 +299,7 @@ class ExpandableSearchComponent {
         this.showField = !this.showField;
         if (!this.showField) {
             this.searchText = "";
-            this.search('');
+            this.onRefresh.emit({ type: 'text' });
         }
         else {
             setTimeout(() => {
@@ -298,7 +309,7 @@ class ExpandableSearchComponent {
     }
     search(text) {
         const results = this.datas.filter((data) => Object.values(data).some((val) => String(val).toLowerCase().includes(text.toLowerCase())));
-        this.onSearch.emit({ datas: results, searchText: text });
+        this.onSearch.emit({ datas: results, searchText: text, type: 'text' });
     }
 }
 ExpandableSearchComponent.ɵfac = function ExpandableSearchComponent_Factory(t) { return new (t || ExpandableSearchComponent)(); };
@@ -307,7 +318,7 @@ ExpandableSearchComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: E
     } if (rf & 2) {
         let _t;
         i0.ɵɵqueryRefresh(_t = i0.ɵɵloadQuery()) && (ctx.searchElement = _t.first);
-    } }, inputs: { datas: "datas", searchsKey: "searchsKey", placeholder: "placeholder", expandedWitdh: "expandedWitdh", icon: "icon", closeIcon: "closeIcon" }, outputs: { closed: "closed", onSearch: "onSearch" }, decls: 3, vars: 2, consts: [[1, "search-text-container"], ["class", "expanded-search", 4, "ngIf"], ["class", "not-expanded-search", 3, "click", 4, "ngIf"], [1, "expanded-search"], ["type", "text", 1, "search-input", 3, "ngModel", "placeholder", "ngModelChange"], ["search", ""], [3, "icon", "size", "click"], [1, "not-expanded-search", 3, "click"], [3, "icon", "size"]], template: function ExpandableSearchComponent_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { datas: "datas", searchsKey: "searchsKey", placeholder: "placeholder", expandedWitdh: "expandedWitdh", icon: "icon", closeIcon: "closeIcon" }, outputs: { closed: "closed", onSearch: "onSearch", onRefresh: "onRefresh" }, decls: 3, vars: 2, consts: [[1, "search-text-container"], ["class", "expanded-search", 4, "ngIf"], ["class", "not-expanded-search", 3, "click", 4, "ngIf"], [1, "expanded-search"], ["type", "text", 1, "search-input", 3, "ngModel", "placeholder", "ngModelChange"], ["search", ""], [3, "icon", "size", "click"], [1, "not-expanded-search", 3, "click"], [3, "icon", "size"]], template: function ExpandableSearchComponent_Template(rf, ctx) { if (rf & 1) {
         i0.ɵɵelementStart(0, "div", 0);
         i0.ɵɵtemplate(1, ExpandableSearchComponent_div_1_Template, 4, 4, "div", 1);
         i0.ɵɵtemplate(2, ExpandableSearchComponent_div_2_Template, 2, 2, "div", 2);
@@ -337,6 +348,8 @@ ExpandableSearchComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: E
             type: Output
         }], onSearch: [{
             type: Output
+        }], onRefresh: [{
+            type: Output
         }], searchElement: [{
             type: ViewChild,
             args: ['search']
@@ -354,7 +367,7 @@ function AppComponent_ngx_filter_group_0_Template(rf, ctx) { if (rf & 1) {
 function AppComponent_ngx_expandable_search_1_Template(rf, ctx) { if (rf & 1) {
     const _r6 = i0.ɵɵgetCurrentView();
     i0.ɵɵelementStart(0, "ngx-expandable-search", 3);
-    i0.ɵɵlistener("onSearch", function AppComponent_ngx_expandable_search_1_Template_ngx_expandable_search_onSearch_0_listener($event) { i0.ɵɵrestoreView(_r6); const ctx_r5 = i0.ɵɵnextContext(); return ctx_r5.onFilterData($event); });
+    i0.ɵɵlistener("onSearch", function AppComponent_ngx_expandable_search_1_Template_ngx_expandable_search_onSearch_0_listener($event) { i0.ɵɵrestoreView(_r6); const ctx_r5 = i0.ɵɵnextContext(); return ctx_r5.onFilterData($event); })("onRefresh", function AppComponent_ngx_expandable_search_1_Template_ngx_expandable_search_onRefresh_0_listener($event) { i0.ɵɵrestoreView(_r6); const ctx_r7 = i0.ɵɵnextContext(); return ctx_r7.refresh($event); });
     i0.ɵɵelementEnd();
 } if (rf & 2) {
     const ctx_r1 = i0.ɵɵnextContext();
@@ -373,16 +386,14 @@ class AppComponent {
     ngOnInit() {
     }
     onFilterData(e) {
-        console.log('---------ON-FILTER-------------', e);
         this.onFilter.emit(e);
     }
     refresh(e) {
-        console.log('---------ON-REFRESH-------------', this.datas, e);
-        this.onRefresh.emit({ datas: this.datas, filter: e.filter });
+        this.onRefresh.emit({ ...e, datas: this.datas });
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
-AppComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: AppComponent, selectors: [["ngx-filter"]], inputs: { filterConfig: "filterConfig", lang: "lang", withRefresh: "withRefresh", searchType: "searchType", datas: "datas" }, outputs: { onFilter: "onFilter", onRefresh: "onRefresh" }, decls: 2, vars: 2, consts: [[3, "filterConfig", "lang", "datas", "withRefresh", "onFilter", "onRefresh", 4, "ngIf"], [3, "lang", "datas", "onSearch", 4, "ngIf"], [3, "filterConfig", "lang", "datas", "withRefresh", "onFilter", "onRefresh"], [3, "lang", "datas", "onSearch"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: AppComponent, selectors: [["ngx-filter"]], inputs: { filterConfig: "filterConfig", lang: "lang", withRefresh: "withRefresh", searchType: "searchType", datas: "datas" }, outputs: { onFilter: "onFilter", onRefresh: "onRefresh" }, decls: 2, vars: 2, consts: [[3, "filterConfig", "lang", "datas", "withRefresh", "onFilter", "onRefresh", 4, "ngIf"], [3, "lang", "datas", "onSearch", "onRefresh", 4, "ngIf"], [3, "filterConfig", "lang", "datas", "withRefresh", "onFilter", "onRefresh"], [3, "lang", "datas", "onSearch", "onRefresh"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         i0.ɵɵtemplate(0, AppComponent_ngx_filter_group_0_Template, 1, 4, "ngx-filter-group", 0);
         i0.ɵɵtemplate(1, AppComponent_ngx_expandable_search_1_Template, 1, 2, "ngx-expandable-search", 1);
     } if (rf & 2) {
@@ -392,7 +403,7 @@ AppComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: AppComponent, 
     } }, styles: [""] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AppComponent, [{
         type: Component,
-        args: [{ selector: 'ngx-filter', template: "<ngx-filter-group *ngIf=\"searchType==='search-group'\" [filterConfig]=\"filterConfig\" [lang]=\"lang\"\r\n  (onFilter)=\"onFilterData($event)\" (onRefresh)=\"refresh($event)\" [datas]=\"datas\" [withRefresh]=\"withRefresh\">\r\n</ngx-filter-group>\r\n<ngx-expandable-search *ngIf=\"searchType==='search-text'\" [lang]=\"lang\" (onSearch)=\"onFilterData($event)\"\r\n  [datas]=\"datas\">\r\n</ngx-expandable-search>", styles: [""] }]
+        args: [{ selector: 'ngx-filter', template: "<ngx-filter-group *ngIf=\"searchType==='search-group'\" [filterConfig]=\"filterConfig\" [lang]=\"lang\"\r\n  (onFilter)=\"onFilterData($event)\" (onRefresh)=\"refresh($event)\" [datas]=\"datas\" [withRefresh]=\"withRefresh\">\r\n</ngx-filter-group>\r\n<ngx-expandable-search *ngIf=\"searchType==='search-text'\" [lang]=\"lang\" (onSearch)=\"onFilterData($event)\"\r\n  (onRefresh)=\"refresh($event)\" [datas]=\"datas\">\r\n</ngx-expandable-search>", styles: [""] }]
     }], null, { filterConfig: [{
             type: Input
         }], lang: [{
