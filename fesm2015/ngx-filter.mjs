@@ -28,7 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-const onApply = (filterConfig, datas) => {
+const onApply = (datas, filterConfig) => {
     try {
         const filterResultEquality = {};
         const filterResultDate = {};
@@ -77,11 +77,15 @@ const onApply = (filterConfig, datas) => {
             }
             return isTrue;
         }).value();
-        return { filter: filterResultEquality, datas: dataFilteredByDate, type: 'group' };
+        return { filterConfig, datas: dataFilteredByDate, type: 'group' };
     }
     catch (error) {
         return { filter: {}, datas: [], type: 'group' };
     }
+};
+const searchGlobal = (datas, text) => {
+    const result = datas.filter((data) => Object.values(data).some((val) => String(val).toLowerCase().includes(text.toLowerCase())));
+    return { datas: result, filterConfig: text, type: 'text' };
 };
 
 function FilterComponent_ng_container_2_ng_container_2_mat_option_5_Template(rf, ctx) {
@@ -231,10 +235,10 @@ class FilterComponent {
         this.onApplyFilter();
     }
     refresh() {
-        this.onRefresh.emit({ filter: this.filterConfigBackup, datas: this.datas, type: 'group' });
+        this.onRefresh.emit({ filterConfig: this.filterConfigBackup, datas: this.datas, type: 'group' });
     }
     onApplyFilter() {
-        const filterResult = onApply(this.filterConfig, this.datas);
+        const filterResult = onApply(this.datas, this.filterConfig);
         this.onFilter.emit(filterResult);
     }
 }
@@ -274,7 +278,7 @@ FilterComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: FilterCompo
             }] });
 })();
 
-const _c0 = ["search"];
+const _c0$1 = ["search"];
 function ExpandableSearchComponent_div_1_Template(rf, ctx) {
     if (rf & 1) {
         const _r4 = i0.ɵɵgetCurrentView();
@@ -331,7 +335,7 @@ class ExpandableSearchComponent {
         this.showField = !this.showField;
         if (!this.showField) {
             this.searchText = "";
-            this.onRefresh.emit({ type: 'text' });
+            this.search('');
         }
         else {
             setTimeout(() => {
@@ -341,14 +345,14 @@ class ExpandableSearchComponent {
         }
     }
     search(text) {
-        const results = this.datas.filter((data) => Object.values(data).some((val) => String(val).toLowerCase().includes(text.toLowerCase())));
-        this.onSearch.emit({ datas: results, searchText: text, type: 'text' });
+        const results = searchGlobal(this.datas, text);
+        this.onSearch.emit(results);
     }
 }
 ExpandableSearchComponent.ɵfac = function ExpandableSearchComponent_Factory(t) { return new (t || ExpandableSearchComponent)(); };
 ExpandableSearchComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: ExpandableSearchComponent, selectors: [["ngx-expandable-search"]], viewQuery: function ExpandableSearchComponent_Query(rf, ctx) {
         if (rf & 1) {
-            i0.ɵɵviewQuery(_c0, 5);
+            i0.ɵɵviewQuery(_c0$1, 5);
         }
         if (rf & 2) {
             let _t;
@@ -396,70 +400,147 @@ ExpandableSearchComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: E
             }] });
 })();
 
-function AppComponent_ngx_filter_group_0_Template(rf, ctx) {
+function AppComponent_ng_container_1_ngx_expandable_search_4_Template(rf, ctx) {
     if (rf & 1) {
-        const _r3 = i0.ɵɵgetCurrentView();
-        i0.ɵɵelementStart(0, "ngx-filter-group", 2);
-        i0.ɵɵlistener("onFilter", function AppComponent_ngx_filter_group_0_Template_ngx_filter_group_onFilter_0_listener($event) { i0.ɵɵrestoreView(_r3); const ctx_r2 = i0.ɵɵnextContext(); return ctx_r2.onFilterData($event); })("onRefresh", function AppComponent_ngx_filter_group_0_Template_ngx_filter_group_onRefresh_0_listener($event) { i0.ɵɵrestoreView(_r3); const ctx_r4 = i0.ɵɵnextContext(); return ctx_r4.refresh($event); });
+        const _r5 = i0.ɵɵgetCurrentView();
+        i0.ɵɵelementStart(0, "ngx-expandable-search", 6);
+        i0.ɵɵlistener("onSearch", function AppComponent_ng_container_1_ngx_expandable_search_4_Template_ngx_expandable_search_onSearch_0_listener($event) { i0.ɵɵrestoreView(_r5); const ctx_r4 = i0.ɵɵnextContext(2); return ctx_r4.onFilterData($event); })("onRefresh", function AppComponent_ng_container_1_ngx_expandable_search_4_Template_ngx_expandable_search_onRefresh_0_listener($event) { i0.ɵɵrestoreView(_r5); const ctx_r6 = i0.ɵɵnextContext(2); return ctx_r6.refresh($event); });
         i0.ɵɵelementEnd();
     }
     if (rf & 2) {
-        const ctx_r0 = i0.ɵɵnextContext();
-        i0.ɵɵproperty("filterConfig", ctx_r0.filterConfig)("lang", ctx_r0.lang)("datas", ctx_r0.datas)("withRefresh", ctx_r0.withRefresh);
+        const ctx_r3 = i0.ɵɵnextContext(2);
+        i0.ɵɵproperty("lang", ctx_r3.lang)("datas", ctx_r3.datas);
     }
 }
-function AppComponent_ngx_expandable_search_1_Template(rf, ctx) {
+function AppComponent_ng_container_1_Template(rf, ctx) {
     if (rf & 1) {
-        const _r6 = i0.ɵɵgetCurrentView();
-        i0.ɵɵelementStart(0, "ngx-expandable-search", 3);
-        i0.ɵɵlistener("onSearch", function AppComponent_ngx_expandable_search_1_Template_ngx_expandable_search_onSearch_0_listener($event) { i0.ɵɵrestoreView(_r6); const ctx_r5 = i0.ɵɵnextContext(); return ctx_r5.onFilterData($event); })("onRefresh", function AppComponent_ngx_expandable_search_1_Template_ngx_expandable_search_onRefresh_0_listener($event) { i0.ɵɵrestoreView(_r6); const ctx_r7 = i0.ɵɵnextContext(); return ctx_r7.refresh($event); });
+        const _r8 = i0.ɵɵgetCurrentView();
+        i0.ɵɵelementContainerStart(0);
+        i0.ɵɵelementStart(1, "ngx-filter-group", 4);
+        i0.ɵɵlistener("onFilter", function AppComponent_ng_container_1_Template_ngx_filter_group_onFilter_1_listener($event) { i0.ɵɵrestoreView(_r8); const ctx_r7 = i0.ɵɵnextContext(); return ctx_r7.onFilterData($event); })("onRefresh", function AppComponent_ng_container_1_Template_ngx_filter_group_onRefresh_1_listener($event) { i0.ɵɵrestoreView(_r8); const ctx_r9 = i0.ɵɵnextContext(); return ctx_r9.refresh($event); });
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementStart(2, "div", 5);
+        i0.ɵɵprojection(3);
+        i0.ɵɵtemplate(4, AppComponent_ng_container_1_ngx_expandable_search_4_Template, 1, 2, "ngx-expandable-search", 3);
+        i0.ɵɵelementEnd();
+        i0.ɵɵelementContainerEnd();
+    }
+    if (rf & 2) {
+        const ctx_r0 = i0.ɵɵnextContext();
+        i0.ɵɵadvance(1);
+        i0.ɵɵproperty("filterConfig", ctx_r0.filterConfig)("lang", ctx_r0.lang)("datas", ctx_r0.datas)("withRefresh", ctx_r0.withRefresh);
+        i0.ɵɵadvance(3);
+        i0.ɵɵproperty("ngIf", ctx_r0.withGlobalSearch);
+    }
+}
+function AppComponent_ngx_filter_group_2_Template(rf, ctx) {
+    if (rf & 1) {
+        const _r11 = i0.ɵɵgetCurrentView();
+        i0.ɵɵelementStart(0, "ngx-filter-group", 4);
+        i0.ɵɵlistener("onFilter", function AppComponent_ngx_filter_group_2_Template_ngx_filter_group_onFilter_0_listener($event) { i0.ɵɵrestoreView(_r11); const ctx_r10 = i0.ɵɵnextContext(); return ctx_r10.onFilterData($event); })("onRefresh", function AppComponent_ngx_filter_group_2_Template_ngx_filter_group_onRefresh_0_listener($event) { i0.ɵɵrestoreView(_r11); const ctx_r12 = i0.ɵɵnextContext(); return ctx_r12.refresh($event); });
         i0.ɵɵelementEnd();
     }
     if (rf & 2) {
         const ctx_r1 = i0.ɵɵnextContext();
-        i0.ɵɵproperty("lang", ctx_r1.lang)("datas", ctx_r1.datas);
+        i0.ɵɵproperty("filterConfig", ctx_r1.filterConfig)("lang", ctx_r1.lang)("datas", ctx_r1.datas)("withRefresh", ctx_r1.withRefresh);
     }
 }
+function AppComponent_ngx_expandable_search_3_Template(rf, ctx) {
+    if (rf & 1) {
+        const _r14 = i0.ɵɵgetCurrentView();
+        i0.ɵɵelementStart(0, "ngx-expandable-search", 6);
+        i0.ɵɵlistener("onSearch", function AppComponent_ngx_expandable_search_3_Template_ngx_expandable_search_onSearch_0_listener($event) { i0.ɵɵrestoreView(_r14); const ctx_r13 = i0.ɵɵnextContext(); return ctx_r13.onFilterData($event); })("onRefresh", function AppComponent_ngx_expandable_search_3_Template_ngx_expandable_search_onRefresh_0_listener($event) { i0.ɵɵrestoreView(_r14); const ctx_r15 = i0.ɵɵnextContext(); return ctx_r15.refresh($event); });
+        i0.ɵɵelementEnd();
+    }
+    if (rf & 2) {
+        const ctx_r2 = i0.ɵɵnextContext();
+        i0.ɵɵproperty("lang", ctx_r2.lang)("datas", ctx_r2.datas);
+    }
+}
+const _c0 = ["*"];
 class AppComponent {
     constructor() {
         this.filterConfig = [];
         this.lang = "fr";
         this.withRefresh = true;
-        this.searchType = 'search-group';
+        this.withGlobalSearch = true;
+        this.searchType = 'search-full';
         this.datas = [];
         this.onFilter = new EventEmitter();
         this.onRefresh = new EventEmitter();
+        this.configFilterGroup = [];
+        this.configFilterGlobal = '';
+        this.filterConfigRefresh = "";
     }
     ngOnInit() {
+        setTimeout(() => {
+            this.filterConfigRefresh = JSON.stringify(this.filterConfig);
+        }, 2000);
     }
     onFilterData(e) {
-        this.onFilter.emit(e);
+        if (this.searchType === 'search-full') {
+            if (e.type === 'group') {
+                this.configFilterGroup = e.filterConfig;
+                const results = searchGlobal(e.datas, this.configFilterGlobal);
+                this.onFilter.emit(results);
+            }
+            else if (e.type === 'text') {
+                this.configFilterGlobal = e.filterConfig;
+                const results = onApply(e.datas, this.configFilterGroup);
+                this.onFilter.emit(results);
+            }
+        }
+        else {
+            this.onFilter.emit(e);
+        }
     }
     refresh(e) {
-        this.onRefresh.emit(Object.assign(Object.assign({}, e), { datas: this.datas }));
+        if (this.searchType === 'search-full') {
+            if (e.type === 'group') {
+                this.configFilterGroup = [];
+                this.onFilterData(e);
+                this.filterConfig = JSON.parse(this.filterConfigRefresh);
+            }
+            else {
+                this.configFilterGlobal = "";
+                this.onFilterData(e);
+            }
+        }
+        else {
+            this.onRefresh.emit(Object.assign(Object.assign({}, e), { datas: this.datas }));
+        }
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
-AppComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: AppComponent, selectors: [["ngx-filter"]], inputs: { filterConfig: "filterConfig", lang: "lang", withRefresh: "withRefresh", searchType: "searchType", datas: "datas" }, outputs: { onFilter: "onFilter", onRefresh: "onRefresh" }, decls: 2, vars: 2, consts: [[3, "filterConfig", "lang", "datas", "withRefresh", "onFilter", "onRefresh", 4, "ngIf"], [3, "lang", "datas", "onSearch", "onRefresh", 4, "ngIf"], [3, "filterConfig", "lang", "datas", "withRefresh", "onFilter", "onRefresh"], [3, "lang", "datas", "onSearch", "onRefresh"]], template: function AppComponent_Template(rf, ctx) {
+AppComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: AppComponent, selectors: [["ngx-filter"]], inputs: { filterConfig: "filterConfig", lang: "lang", withRefresh: "withRefresh", withGlobalSearch: "withGlobalSearch", searchType: "searchType", datas: "datas" }, outputs: { onFilter: "onFilter", onRefresh: "onRefresh" }, ngContentSelectors: _c0, decls: 4, vars: 3, consts: [[1, "ngx-filter-container"], [4, "ngIf"], [3, "filterConfig", "lang", "datas", "withRefresh", "onFilter", "onRefresh", 4, "ngIf"], [3, "lang", "datas", "onSearch", "onRefresh", 4, "ngIf"], [3, "filterConfig", "lang", "datas", "withRefresh", "onFilter", "onRefresh"], [1, "ngx-filter-content-left"], [3, "lang", "datas", "onSearch", "onRefresh"]], template: function AppComponent_Template(rf, ctx) {
         if (rf & 1) {
-            i0.ɵɵtemplate(0, AppComponent_ngx_filter_group_0_Template, 1, 4, "ngx-filter-group", 0);
-            i0.ɵɵtemplate(1, AppComponent_ngx_expandable_search_1_Template, 1, 2, "ngx-expandable-search", 1);
+            i0.ɵɵprojectionDef();
+            i0.ɵɵelementStart(0, "div", 0);
+            i0.ɵɵtemplate(1, AppComponent_ng_container_1_Template, 5, 5, "ng-container", 1);
+            i0.ɵɵtemplate(2, AppComponent_ngx_filter_group_2_Template, 1, 4, "ngx-filter-group", 2);
+            i0.ɵɵtemplate(3, AppComponent_ngx_expandable_search_3_Template, 1, 2, "ngx-expandable-search", 3);
+            i0.ɵɵelementEnd();
         }
         if (rf & 2) {
+            i0.ɵɵadvance(1);
+            i0.ɵɵproperty("ngIf", ctx.searchType === "search-full");
+            i0.ɵɵadvance(1);
             i0.ɵɵproperty("ngIf", ctx.searchType === "search-group");
             i0.ɵɵadvance(1);
             i0.ɵɵproperty("ngIf", ctx.searchType === "search-text");
         }
-    }, styles: [""] });
+    }, styles: [".ngx-filter-container[_ngcontent-%COMP%]{display:flex;align-items:center;justify-content:space-between;width:100%;gap:15px}.ngx-filter-container[_ngcontent-%COMP%]   .ngx-filter-content-left[_ngcontent-%COMP%]{display:flex;align-items:center;gap:15px}"] });
 (function () {
     (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(AppComponent, [{
             type: Component,
-            args: [{ selector: 'ngx-filter', template: "<ngx-filter-group *ngIf=\"searchType==='search-group'\" [filterConfig]=\"filterConfig\" [lang]=\"lang\"\r\n  (onFilter)=\"onFilterData($event)\" (onRefresh)=\"refresh($event)\" [datas]=\"datas\" [withRefresh]=\"withRefresh\">\r\n</ngx-filter-group>\r\n<ngx-expandable-search *ngIf=\"searchType==='search-text'\" [lang]=\"lang\" (onSearch)=\"onFilterData($event)\"\r\n  (onRefresh)=\"refresh($event)\" [datas]=\"datas\">\r\n</ngx-expandable-search>", styles: [""] }]
+            args: [{ selector: 'ngx-filter', template: "<div class=\"ngx-filter-container\">\r\n  <ng-container *ngIf=\"searchType==='search-full'\">\r\n    <ngx-filter-group [filterConfig]=\"filterConfig\" [lang]=\"lang\" (onFilter)=\"onFilterData($event)\"\r\n      (onRefresh)=\"refresh($event)\" [datas]=\"datas\" [withRefresh]=\"withRefresh\">\r\n    </ngx-filter-group>\r\n    <div class=\"ngx-filter-content-left\">\r\n      <ng-content></ng-content>\r\n      <ngx-expandable-search *ngIf=\"withGlobalSearch\" [lang]=\"lang\" (onSearch)=\"onFilterData($event)\"\r\n        (onRefresh)=\"refresh($event)\" [datas]=\"datas\">\r\n      </ngx-expandable-search>\r\n    </div>\r\n  </ng-container>\r\n  <ngx-filter-group *ngIf=\"searchType==='search-group'\" [filterConfig]=\"filterConfig\" [lang]=\"lang\"\r\n    (onFilter)=\"onFilterData($event)\" (onRefresh)=\"refresh($event)\" [datas]=\"datas\" [withRefresh]=\"withRefresh\">\r\n  </ngx-filter-group>\r\n  <ngx-expandable-search *ngIf=\"searchType==='search-text'\" [lang]=\"lang\" (onSearch)=\"onFilterData($event)\"\r\n    (onRefresh)=\"refresh($event)\" [datas]=\"datas\">\r\n  </ngx-expandable-search>\r\n</div>", styles: [".ngx-filter-container{display:flex;align-items:center;justify-content:space-between;width:100%;gap:15px}.ngx-filter-container .ngx-filter-content-left{display:flex;align-items:center;gap:15px}\n"] }]
         }], null, { filterConfig: [{
                 type: Input
             }], lang: [{
                 type: Input
             }], withRefresh: [{
+                type: Input
+            }], withGlobalSearch: [{
                 type: Input
             }], searchType: [{
                 type: Input
