@@ -6,6 +6,7 @@ export interface Idate {
     type: "date";
     key: string;
     operator: 'gte' | 'lte' | 'eq';
+    value?: string | Date;
     label?: string;
 }
 export interface ISelect {
