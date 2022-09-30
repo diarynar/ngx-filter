@@ -429,12 +429,12 @@ class AppComponent {
             if (e.type === 'group') {
                 this.configFilterGroup = e.filterConfig;
                 const results = searchGlobal(e.datas, this.configFilterGlobal);
-                this.onFilter.emit(results);
+                this.onFilter.emit({ ...results, filterConfig: e.filterConfig });
             }
             else if (e.type === 'text') {
                 this.configFilterGlobal = e.filterConfig;
                 const results = onApply(e.datas, this.configFilterGroup);
-                this.onFilter.emit(results);
+                this.onFilter.emit({ ...results, filterConfig: e.filterConfig });
             }
         }
         else {
