@@ -7,8 +7,8 @@ export interface Idate {
     key: string;
     operator: 'gte' | 'lte' | 'eq';
     value?: string | Date;
-    label?: string;
     class?: string;
+    label?: string;
 }
 export interface ISelect {
     type: "select";
@@ -22,8 +22,8 @@ export interface ISort {
     type: "sort";
     key: string;
     value: 'asc' | 'desc';
-    label?: string;
     class?: string;
+    label?: string;
 }
 export interface IFilterConfiguration {
     filterData: Idate | ISelect | ISort;

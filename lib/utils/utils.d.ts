@@ -9,8 +9,8 @@ export declare const onApply: (datas: any, filterConfig: any) => {
     type: string;
     filterConfig?: undefined;
 };
-export declare const searchGlobal: (datas: any[], text?: string) => {
+export declare const searchGlobal: (datas: any[], text: string) => {
     datas: any[];
-    searchText: string;
+    filterConfig: string;
     type: string;
 };
