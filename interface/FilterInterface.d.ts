@@ -7,7 +7,6 @@ export interface Idate {
     key: string;
     operator: 'gte' | 'lte' | 'eq';
     value?: string | Date;
-    class?: string;
     label?: string;
 }
 export interface ISelect {
@@ -16,13 +15,11 @@ export interface ISelect {
     value: string | number | boolean;
     options: IOptions[];
     label?: string;
-    class?: string;
 }
 export interface ISort {
     type: "sort";
     key: string;
     value: 'asc' | 'desc';
-    class?: string;
     label?: string;
 }
 export interface IFilterConfiguration {

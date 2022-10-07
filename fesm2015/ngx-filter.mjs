@@ -483,12 +483,12 @@ class AppComponent {
             if (e.type === 'group') {
                 this.configFilterGroup = e.filterConfig;
                 const results = searchGlobal(e.datas, this.configFilterGlobal);
-                this.onFilter.emit(Object.assign(Object.assign({}, results), { filterConfig: e.filterConfig }));
+                this.onFilter.emit(results);
             }
             else if (e.type === 'text') {
                 this.configFilterGlobal = e.filterConfig;
                 const results = onApply(e.datas, this.configFilterGroup);
-                this.onFilter.emit(Object.assign(Object.assign({}, results), { filterConfig: e.filterConfig }));
+                this.onFilter.emit(results);
             }
         }
         else {
