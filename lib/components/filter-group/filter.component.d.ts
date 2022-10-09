@@ -13,15 +13,11 @@ export declare class FilterComponent implements OnInit {
     onRefresh: EventEmitter<any>;
     constructor(dateAdapter: DateAdapter<any>);
     filterConfigBackup: any[];
-    demo: {
-        id: number;
-        value: string;
-    }[];
     ngOnInit(): void;
     onSortChange(item: any): void;
     ngOnChanges(): void;
     refresh(): void;
     onApplyFilter(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<FilterComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<FilterComponent, "ngx-filter-group", never, { "filterConfig": "filterConfig"; "lang": "lang"; "withRefresh": "withRefresh"; "datas": "datas"; }, { "onSort": "onSort"; "onFilter": "onFilter"; "onRefresh": "onRefresh"; }, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<FilterComponent, "ngx-filter-group", never, { "filterConfig": "filterConfig"; "lang": "lang"; "withRefresh": "withRefresh"; "datas": "datas"; }, { "onSort": "onSort"; "onFilter": "onFilter"; "onRefresh": "onRefresh"; }, never, never, false>;
 }

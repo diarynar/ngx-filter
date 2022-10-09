@@ -1,32 +1,31 @@
 {
-  "name": "ngx-filter",
+  "name": "filter",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": ">=14.x",
     "@angular/core": ">=14.x",
-    "@angular/material": ">=14.x",
-    "lodash": "^4.17.21"
+    "@angular/material": ">=14.x"
   },
   "dependencies": {
     "tslib": ">=2.x"
   },
-  "module": "fesm2015/ngx-filter.mjs",
-  "es2020": "fesm2020/ngx-filter.mjs",
-  "esm2020": "esm2020/ngx-filter.mjs",
-  "fesm2020": "fesm2020/ngx-filter.mjs",
-  "fesm2015": "fesm2015/ngx-filter.mjs",
-  "typings": "ngx-filter.d.ts",
+  "module": "fesm2015/filter.mjs",
+  "es2020": "fesm2020/filter.mjs",
+  "esm2020": "esm2020/filter.mjs",
+  "fesm2020": "fesm2020/filter.mjs",
+  "fesm2015": "fesm2015/filter.mjs",
+  "typings": "index.d.ts",
   "exports": {
     "./package.json": {
       "default": "./package.json"
     },
     ".": {
-      "types": "./ngx-filter.d.ts",
-      "esm2020": "./esm2020/ngx-filter.mjs",
-      "es2020": "./fesm2020/ngx-filter.mjs",
-      "es2015": "./fesm2015/ngx-filter.mjs",
-      "node": "./fesm2015/ngx-filter.mjs",
-      "default": "./fesm2020/ngx-filter.mjs"
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/filter.mjs",
+      "es2020": "./fesm2020/filter.mjs",
+      "es2015": "./fesm2015/filter.mjs",
+      "node": "./fesm2015/filter.mjs",
+      "default": "./fesm2020/filter.mjs"
     }
   },
   "sideEffects": false,
