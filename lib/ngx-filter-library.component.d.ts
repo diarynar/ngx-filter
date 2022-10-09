@@ -15,6 +15,7 @@ export declare class NgxFilterLibraryComponent implements OnInit {
     configFilterGlobal: string;
     filterConfigRefresh: string;
     ngOnInit(): void;
+    ngOnChanges(): void;
     onFilterData(e: any): void;
     refresh(e: any): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<NgxFilterLibraryComponent, never>;
