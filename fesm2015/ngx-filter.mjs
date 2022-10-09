@@ -88,99 +88,113 @@ const searchGlobal = (datas, text = "") => {
     return { datas: result, searchText: text, type: 'text' };
 };
 
-function FilterComponent_ng_container_2_mat_option_7_Template(rf, ctx) {
+function FilterComponent_li_2_Template(rf, ctx) {
     if (rf & 1) {
-        i0.ɵɵelementStart(0, "mat-option", 12);
+        i0.ɵɵelementStart(0, "li", 4);
         i0.ɵɵtext(1);
         i0.ɵɵelementEnd();
     }
     if (rf & 2) {
-        const option_r6 = ctx.$implicit;
-        i0.ɵɵproperty("value", option_r6.value);
+        const item_r3 = ctx.$implicit;
         i0.ɵɵadvance(1);
-        i0.ɵɵtextInterpolate1(" ", option_r6.label, " ");
+        i0.ɵɵtextInterpolate2(" ", item_r3.id, " ", item_r3.value, " xxxxxxxxxxxxxxxxxx ");
     }
 }
-function FilterComponent_ng_container_2_div_14_mat_icon_4_Template(rf, ctx) {
+function FilterComponent_ng_container_3_mat_option_8_Template(rf, ctx) {
+    if (rf & 1) {
+        i0.ɵɵelementStart(0, "mat-option", 13);
+        i0.ɵɵtext(1);
+        i0.ɵɵelementEnd();
+    }
+    if (rf & 2) {
+        const option_r8 = ctx.$implicit;
+        i0.ɵɵproperty("value", option_r8.value);
+        i0.ɵɵadvance(1);
+        i0.ɵɵtextInterpolate1(" ", option_r8.label, " ");
+    }
+}
+function FilterComponent_ng_container_3_div_15_mat_icon_4_Template(rf, ctx) {
     if (rf & 1) {
         i0.ɵɵelementStart(0, "mat-icon");
         i0.ɵɵtext(1, "arrow_downward");
         i0.ɵɵelementEnd();
     }
 }
-function FilterComponent_ng_container_2_div_14_mat_icon_5_Template(rf, ctx) {
+function FilterComponent_ng_container_3_div_15_mat_icon_5_Template(rf, ctx) {
     if (rf & 1) {
         i0.ɵɵelementStart(0, "mat-icon");
         i0.ɵɵtext(1, "arrow_upward");
         i0.ɵɵelementEnd();
     }
 }
-function FilterComponent_ng_container_2_div_14_Template(rf, ctx) {
+function FilterComponent_ng_container_3_div_15_Template(rf, ctx) {
     if (rf & 1) {
-        const _r11 = i0.ɵɵgetCurrentView();
-        i0.ɵɵelementStart(0, "div", 13)(1, "div", 14);
-        i0.ɵɵlistener("click", function FilterComponent_ng_container_2_div_14_Template_div_click_1_listener() { i0.ɵɵrestoreView(_r11); const item_r2 = i0.ɵɵnextContext().$implicit; const ctx_r9 = i0.ɵɵnextContext(); return ctx_r9.onSortChange(item_r2.filterData); });
-        i0.ɵɵelementStart(2, "span", 15);
+        const _r13 = i0.ɵɵgetCurrentView();
+        i0.ɵɵelementStart(0, "div", 14)(1, "div", 15);
+        i0.ɵɵlistener("click", function FilterComponent_ng_container_3_div_15_Template_div_click_1_listener() { i0.ɵɵrestoreView(_r13); const item_r4 = i0.ɵɵnextContext().$implicit; const ctx_r11 = i0.ɵɵnextContext(); return ctx_r11.onSortChange(item_r4.filterData); });
+        i0.ɵɵelementStart(2, "span", 16);
         i0.ɵɵtext(3);
         i0.ɵɵelementEnd();
-        i0.ɵɵtemplate(4, FilterComponent_ng_container_2_div_14_mat_icon_4_Template, 2, 0, "mat-icon", 2);
-        i0.ɵɵtemplate(5, FilterComponent_ng_container_2_div_14_mat_icon_5_Template, 2, 0, "mat-icon", 2);
+        i0.ɵɵtemplate(4, FilterComponent_ng_container_3_div_15_mat_icon_4_Template, 2, 0, "mat-icon", 3);
+        i0.ɵɵtemplate(5, FilterComponent_ng_container_3_div_15_mat_icon_5_Template, 2, 0, "mat-icon", 3);
         i0.ɵɵelementEnd()();
     }
     if (rf & 2) {
-        const item_r2 = i0.ɵɵnextContext().$implicit;
-        i0.ɵɵproperty("ngClass", item_r2.filterData == null ? null : item_r2.filterData.class);
+        const item_r4 = i0.ɵɵnextContext().$implicit;
+        i0.ɵɵproperty("ngClass", item_r4.filterData == null ? null : item_r4.filterData.class);
         i0.ɵɵadvance(3);
-        i0.ɵɵtextInterpolate(item_r2.filterData == null ? null : item_r2.filterData.label);
+        i0.ɵɵtextInterpolate(item_r4.filterData == null ? null : item_r4.filterData.label);
         i0.ɵɵadvance(1);
-        i0.ɵɵproperty("ngIf", item_r2.filterData.value === "asc");
+        i0.ɵɵproperty("ngIf", item_r4.filterData.value === "asc");
         i0.ɵɵadvance(1);
-        i0.ɵɵproperty("ngIf", item_r2.filterData.value !== "asc");
+        i0.ɵɵproperty("ngIf", item_r4.filterData.value !== "asc");
     }
 }
-function FilterComponent_ng_container_2_Template(rf, ctx) {
+function FilterComponent_ng_container_3_Template(rf, ctx) {
     if (rf & 1) {
-        const _r14 = i0.ɵɵgetCurrentView();
+        const _r16 = i0.ɵɵgetCurrentView();
         i0.ɵɵelementContainerStart(0);
-        i0.ɵɵelementStart(1, "li", 3)(2, "div")(3, "mat-form-field", 4)(4, "mat-select", 5);
-        i0.ɵɵlistener("ngModelChange", function FilterComponent_ng_container_2_Template_mat_select_ngModelChange_4_listener($event) { const restoredCtx = i0.ɵɵrestoreView(_r14); const item_r2 = restoredCtx.$implicit; return item_r2.filterData.value = $event; })("ngModelChange", function FilterComponent_ng_container_2_Template_mat_select_ngModelChange_4_listener() { i0.ɵɵrestoreView(_r14); const ctx_r15 = i0.ɵɵnextContext(); return ctx_r15.onApplyFilter(); });
-        i0.ɵɵelementStart(5, "mat-option", 6);
-        i0.ɵɵtext(6);
+        i0.ɵɵelementStart(1, "li", 4);
+        i0.ɵɵtext(2, " xxxxxxxxxxxxxxccccccccccccccc ");
+        i0.ɵɵelementStart(3, "div")(4, "mat-form-field", 5)(5, "mat-select", 6);
+        i0.ɵɵlistener("ngModelChange", function FilterComponent_ng_container_3_Template_mat_select_ngModelChange_5_listener($event) { const restoredCtx = i0.ɵɵrestoreView(_r16); const item_r4 = restoredCtx.$implicit; return item_r4.filterData.value = $event; })("ngModelChange", function FilterComponent_ng_container_3_Template_mat_select_ngModelChange_5_listener() { i0.ɵɵrestoreView(_r16); const ctx_r17 = i0.ɵɵnextContext(); return ctx_r17.onApplyFilter(); });
+        i0.ɵɵelementStart(6, "mat-option", 7);
+        i0.ɵɵtext(7);
         i0.ɵɵelementEnd();
-        i0.ɵɵtemplate(7, FilterComponent_ng_container_2_mat_option_7_Template, 2, 2, "mat-option", 7);
+        i0.ɵɵtemplate(8, FilterComponent_ng_container_3_mat_option_8_Template, 2, 2, "mat-option", 8);
         i0.ɵɵelementEnd()()();
-        i0.ɵɵelementStart(8, "div")(9, "mat-form-field", 4)(10, "input", 8);
-        i0.ɵɵlistener("ngModelChange", function FilterComponent_ng_container_2_Template_input_ngModelChange_10_listener($event) { const restoredCtx = i0.ɵɵrestoreView(_r14); const item_r2 = restoredCtx.$implicit; return item_r2.filterData.value = $event; })("ngModelChange", function FilterComponent_ng_container_2_Template_input_ngModelChange_10_listener() { i0.ɵɵrestoreView(_r14); const ctx_r17 = i0.ɵɵnextContext(); return ctx_r17.onApplyFilter(); });
+        i0.ɵɵelementStart(9, "div")(10, "mat-form-field", 5)(11, "input", 9);
+        i0.ɵɵlistener("ngModelChange", function FilterComponent_ng_container_3_Template_input_ngModelChange_11_listener($event) { const restoredCtx = i0.ɵɵrestoreView(_r16); const item_r4 = restoredCtx.$implicit; return item_r4.filterData.value = $event; })("ngModelChange", function FilterComponent_ng_container_3_Template_input_ngModelChange_11_listener() { i0.ɵɵrestoreView(_r16); const ctx_r19 = i0.ɵɵnextContext(); return ctx_r19.onApplyFilter(); });
         i0.ɵɵelementEnd();
-        i0.ɵɵelement(11, "mat-datepicker-toggle", 9)(12, "mat-datepicker", null, 10);
+        i0.ɵɵelement(12, "mat-datepicker-toggle", 10)(13, "mat-datepicker", null, 11);
         i0.ɵɵelementEnd()();
-        i0.ɵɵtemplate(14, FilterComponent_ng_container_2_div_14_Template, 6, 4, "div", 11);
+        i0.ɵɵtemplate(15, FilterComponent_ng_container_3_div_15_Template, 6, 4, "div", 12);
         i0.ɵɵelementEnd();
         i0.ɵɵelementContainerEnd();
     }
     if (rf & 2) {
-        const item_r2 = ctx.$implicit;
-        const _r4 = i0.ɵɵreference(13);
-        i0.ɵɵadvance(4);
-        i0.ɵɵproperty("ngModel", item_r2.filterData.value);
+        const item_r4 = ctx.$implicit;
+        const _r6 = i0.ɵɵreference(14);
+        i0.ɵɵadvance(5);
+        i0.ɵɵproperty("ngModel", item_r4.filterData.value);
         i0.ɵɵadvance(2);
-        i0.ɵɵtextInterpolate1(" ", item_r2.filterData.label, " ");
+        i0.ɵɵtextInterpolate1(" ", item_r4.filterData.label, " ");
         i0.ɵɵadvance(1);
-        i0.ɵɵproperty("ngForOf", item_r2.filterData.options);
+        i0.ɵɵproperty("ngForOf", item_r4.filterData.options);
         i0.ɵɵadvance(3);
-        i0.ɵɵpropertyInterpolate("placeholder", item_r2.filterData == null ? null : item_r2.filterData.label);
-        i0.ɵɵproperty("matDatepicker", _r4)("min", item_r2.filterData.max)("max", item_r2.filterData.max)("ngModel", item_r2.filterData.value);
+        i0.ɵɵpropertyInterpolate("placeholder", item_r4.filterData == null ? null : item_r4.filterData.label);
+        i0.ɵɵproperty("matDatepicker", _r6)("min", item_r4.filterData.max)("max", item_r4.filterData.max)("ngModel", item_r4.filterData.value);
         i0.ɵɵadvance(1);
-        i0.ɵɵproperty("for", _r4);
+        i0.ɵɵproperty("for", _r6);
         i0.ɵɵadvance(3);
-        i0.ɵɵproperty("ngIf", item_r2.filterData.type === "sort");
+        i0.ɵɵproperty("ngIf", item_r4.filterData.type === "sort");
     }
 }
-function FilterComponent_li_3_Template(rf, ctx) {
+function FilterComponent_li_4_Template(rf, ctx) {
     if (rf & 1) {
-        const _r19 = i0.ɵɵgetCurrentView();
-        i0.ɵɵelementStart(0, "li")(1, "button", 16);
-        i0.ɵɵlistener("click", function FilterComponent_li_3_Template_button_click_1_listener() { i0.ɵɵrestoreView(_r19); const ctx_r18 = i0.ɵɵnextContext(); return ctx_r18.refresh(); });
+        const _r21 = i0.ɵɵgetCurrentView();
+        i0.ɵɵelementStart(0, "li")(1, "button", 17);
+        i0.ɵɵlistener("click", function FilterComponent_li_4_Template_button_click_1_listener() { i0.ɵɵrestoreView(_r21); const ctx_r20 = i0.ɵɵnextContext(); return ctx_r20.refresh(); });
         i0.ɵɵelementStart(2, "mat-icon");
         i0.ɵɵtext(3, "refresh");
         i0.ɵɵelementEnd()()();
@@ -197,6 +211,21 @@ class FilterComponent {
         this.onFilter = new EventEmitter();
         this.onRefresh = new EventEmitter();
         this.filterConfigBackup = [];
+        this.demo = [
+            {
+                id: 1,
+                value: "V1"
+            }, {
+                id: 2,
+                value: "V2"
+            }, {
+                id: 3,
+                value: "V3"
+            }, {
+                id: 4,
+                value: "V4"
+            },
+        ];
     }
     ngOnInit() {
         this.dateAdapter.setLocale(this.lang);
@@ -219,15 +248,18 @@ class FilterComponent {
     }
 }
 FilterComponent.ɵfac = function FilterComponent_Factory(t) { return new (t || FilterComponent)(i0.ɵɵdirectiveInject(i1.DateAdapter)); };
-FilterComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: FilterComponent, selectors: [["ngx-filter-group"]], inputs: { filterConfig: "filterConfig", lang: "lang", withRefresh: "withRefresh", datas: "datas" }, outputs: { onSort: "onSort", onFilter: "onFilter", onRefresh: "onRefresh" }, features: [i0.ɵɵNgOnChangesFeature], decls: 4, vars: 2, consts: [[1, "filter-container"], [4, "ngFor", "ngForOf"], [4, "ngIf"], [1, "filter-item"], ["appearance", "text"], [3, "ngModel", "ngModelChange"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], ["matInput", "", 3, "placeholder", "matDatepicker", "min", "max", "ngModel", "ngModelChange"], ["matSuffix", "", 3, "for"], ["picker", ""], [3, "ngClass", 4, "ngIf"], [3, "value"], [3, "ngClass"], [1, "filter-item-inner", 3, "click"], [1, "ngx-filter-title"], ["mat-mini-fab", "", 1, "ngx-refresh", 3, "click"]], template: function FilterComponent_Template(rf, ctx) {
+FilterComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: FilterComponent, selectors: [["ngx-filter-group"]], inputs: { filterConfig: "filterConfig", lang: "lang", withRefresh: "withRefresh", datas: "datas" }, outputs: { onSort: "onSort", onFilter: "onFilter", onRefresh: "onRefresh" }, features: [i0.ɵɵNgOnChangesFeature], decls: 5, vars: 3, consts: [[1, "filter-container"], ["class", "filter-item", 4, "ngFor", "ngForOf"], [4, "ngFor", "ngForOf"], [4, "ngIf"], [1, "filter-item"], ["appearance", "text"], [3, "ngModel", "ngModelChange"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], ["matInput", "", 3, "placeholder", "matDatepicker", "min", "max", "ngModel", "ngModelChange"], ["matSuffix", "", 3, "for"], ["picker", ""], [3, "ngClass", 4, "ngIf"], [3, "value"], [3, "ngClass"], [1, "filter-item-inner", 3, "click"], [1, "ngx-filter-title"], ["mat-mini-fab", "", 1, "ngx-refresh", 3, "click"]], template: function FilterComponent_Template(rf, ctx) {
         if (rf & 1) {
             i0.ɵɵelementStart(0, "div")(1, "ul", 0);
-            i0.ɵɵtemplate(2, FilterComponent_ng_container_2_Template, 15, 10, "ng-container", 1);
-            i0.ɵɵtemplate(3, FilterComponent_li_3_Template, 4, 0, "li", 2);
+            i0.ɵɵtemplate(2, FilterComponent_li_2_Template, 2, 2, "li", 1);
+            i0.ɵɵtemplate(3, FilterComponent_ng_container_3_Template, 16, 10, "ng-container", 2);
+            i0.ɵɵtemplate(4, FilterComponent_li_4_Template, 4, 0, "li", 3);
             i0.ɵɵelementEnd()();
         }
         if (rf & 2) {
             i0.ɵɵadvance(2);
+            i0.ɵɵproperty("ngForOf", ctx.demo);
+            i0.ɵɵadvance(1);
             i0.ɵɵproperty("ngForOf", ctx.filterConfig);
             i0.ɵɵadvance(1);
             i0.ɵɵproperty("ngIf", ctx.withRefresh);
@@ -236,7 +268,7 @@ FilterComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: FilterCompo
 (function () {
     (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(FilterComponent, [{
             type: Component,
-            args: [{ selector: 'ngx-filter-group', template: "<div>\r\n  <ul class=\"filter-container\">\r\n    <ng-container *ngFor=\"let item of filterConfig\">\r\n      <!-- <div *ngIf=\"item.filterData.type==='divider'\" [ngClass]=\"'ngx-filter-divider '+ item.filterData?.class\"\r\n        class=\"ngx-filter-divider\"></div> -->\r\n      <li class=\"filter-item\">\r\n        <!-- <div *ngIf=\"item.filterData.type==='select'\"> -->\r\n        <div>\r\n          <mat-form-field appearance=\"text\">\r\n            <mat-select [(ngModel)]=\"item.filterData.value\" (ngModelChange)=\"onApplyFilter()\">\r\n              <mat-option value=\"\"> {{item.filterData.label}}\r\n              </mat-option>\r\n              <mat-option [value]=\"option.value\" *ngFor=\"let option of item.filterData.options\"> {{option.label}}\r\n              </mat-option>\r\n            </mat-select>\r\n          </mat-form-field>\r\n        </div>\r\n\r\n        <!-- <div *ngIf=\"item.filterData.type==='date'\"> -->\r\n        <div>\r\n          <mat-form-field appearance=\"text\">\r\n            <input matInput placeholder=\"{{item.filterData?.label}}\" [matDatepicker]=\"picker\"\r\n              [min]=\"item.filterData.max\" [max]=\"item.filterData.max\" [(ngModel)]=\"item.filterData.value\"\r\n              (ngModelChange)=\"onApplyFilter()\">\r\n            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n            <mat-datepicker #picker></mat-datepicker>\r\n          </mat-form-field>\r\n        </div>\r\n        <div *ngIf=\"item.filterData.type==='sort'\" [ngClass]=\"item.filterData?.class\">\r\n          <div class=\"filter-item-inner\" (click)=\"onSortChange(item.filterData)\">\r\n            <span class=\"ngx-filter-title\">{{item.filterData?.label}}</span>\r\n            <mat-icon *ngIf=\"item.filterData.value==='asc'\">arrow_downward</mat-icon>\r\n            <mat-icon *ngIf=\"item.filterData.value!=='asc'\">arrow_upward</mat-icon>\r\n          </div>\r\n        </div>\r\n      </li>\r\n    </ng-container>\r\n    <li *ngIf=\"withRefresh\">\r\n      <button mat-mini-fab class=\"ngx-refresh\" (click)=\"refresh()\">\r\n        <mat-icon>refresh</mat-icon>\r\n      </button>\r\n    </li>\r\n  </ul>\r\n</div>", styles: ["::ng-deep .filter-container{display:flex;align-items:center;gap:10px;margin:0;padding:0}::ng-deep .filter-container .filter-item{display:flex;align-items:center}::ng-deep .filter-container .filter-item .mat-form-field-infix{display:block;position:relative;flex:auto;min-width:0;width:85px;padding:12px 15px;border-top:0}::ng-deep .filter-container .filter-item .mat-form-field-flex{display:inline-flex;align-items:center;box-sizing:border-box;width:100%;border-radius:50px;background:rgba(128,128,128,.517)}::ng-deep .filter-container .filter-item .mat-form-field-wrapper{padding-bottom:0}::ng-deep .filter-container .filter-item .filter-item-inner{border-radius:50px;background:rgba(128,128,128,.517);padding:8px 10px;display:inline-flex;align-items:center;box-sizing:border-box;cursor:pointer}::ng-deep .filter-container .filter-item .search-text .mat-form-field-infix{padding:8px 15px 8px 0}::ng-deep .filter-container .ngx-filter-title{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;line-clamp:2;-webkit-box-orient:vertical}ul{list-style:none}\n"] }]
+            args: [{ selector: 'ngx-filter-group', template: "<div>\r\n  <ul class=\"filter-container\">\r\n    <li class=\"filter-item\" *ngFor=\"let item of demo\">\r\n      {{item.id}} {{item.value}} xxxxxxxxxxxxxxxxxx\r\n    </li>\r\n    <ng-container *ngFor=\"let item of filterConfig\">\r\n      <!-- <div *ngIf=\"item.filterData.type==='divider'\" [ngClass]=\"'ngx-filter-divider '+ item.filterData?.class\"\r\n        class=\"ngx-filter-divider\"></div> -->\r\n      <li class=\"filter-item\">\r\n        xxxxxxxxxxxxxxccccccccccccccc\r\n        <!-- <div *ngIf=\"item.filterData.type==='select'\"> -->\r\n        <div>\r\n          <mat-form-field appearance=\"text\">\r\n            <mat-select [(ngModel)]=\"item.filterData.value\" (ngModelChange)=\"onApplyFilter()\">\r\n              <mat-option value=\"\"> {{item.filterData.label}}\r\n              </mat-option>\r\n              <mat-option [value]=\"option.value\" *ngFor=\"let option of item.filterData.options\"> {{option.label}}\r\n              </mat-option>\r\n            </mat-select>\r\n          </mat-form-field>\r\n        </div>\r\n\r\n        <!-- <div *ngIf=\"item.filterData.type==='date'\"> -->\r\n        <div>\r\n          <mat-form-field appearance=\"text\">\r\n            <input matInput placeholder=\"{{item.filterData?.label}}\" [matDatepicker]=\"picker\"\r\n              [min]=\"item.filterData.max\" [max]=\"item.filterData.max\" [(ngModel)]=\"item.filterData.value\"\r\n              (ngModelChange)=\"onApplyFilter()\">\r\n            <mat-datepicker-toggle matSuffix [for]=\"picker\"></mat-datepicker-toggle>\r\n            <mat-datepicker #picker></mat-datepicker>\r\n          </mat-form-field>\r\n        </div>\r\n        <div *ngIf=\"item.filterData.type==='sort'\" [ngClass]=\"item.filterData?.class\">\r\n          <div class=\"filter-item-inner\" (click)=\"onSortChange(item.filterData)\">\r\n            <span class=\"ngx-filter-title\">{{item.filterData?.label}}</span>\r\n            <mat-icon *ngIf=\"item.filterData.value==='asc'\">arrow_downward</mat-icon>\r\n            <mat-icon *ngIf=\"item.filterData.value!=='asc'\">arrow_upward</mat-icon>\r\n          </div>\r\n        </div>\r\n      </li>\r\n    </ng-container>\r\n    <li *ngIf=\"withRefresh\">\r\n      <button mat-mini-fab class=\"ngx-refresh\" (click)=\"refresh()\">\r\n        <mat-icon>refresh</mat-icon>\r\n      </button>\r\n    </li>\r\n  </ul>\r\n</div>", styles: ["::ng-deep .filter-container{display:flex;align-items:center;gap:10px;margin:0;padding:0}::ng-deep .filter-container .filter-item{display:flex;align-items:center}::ng-deep .filter-container .filter-item .mat-form-field-infix{display:block;position:relative;flex:auto;min-width:0;width:85px;padding:12px 15px;border-top:0}::ng-deep .filter-container .filter-item .mat-form-field-flex{display:inline-flex;align-items:center;box-sizing:border-box;width:100%;border-radius:50px;background:rgba(128,128,128,.517)}::ng-deep .filter-container .filter-item .mat-form-field-wrapper{padding-bottom:0}::ng-deep .filter-container .filter-item .filter-item-inner{border-radius:50px;background:rgba(128,128,128,.517);padding:8px 10px;display:inline-flex;align-items:center;box-sizing:border-box;cursor:pointer}::ng-deep .filter-container .filter-item .search-text .mat-form-field-infix{padding:8px 15px 8px 0}::ng-deep .filter-container .ngx-filter-title{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:1;line-clamp:2;-webkit-box-orient:vertical}ul{list-style:none}\n"] }]
         }], function () { return [{ type: i1.DateAdapter }]; }, { filterConfig: [{
                 type: Input
             }], lang: [{

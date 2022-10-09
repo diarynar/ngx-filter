@@ -13,6 +13,10 @@ export declare class FilterComponent implements OnInit {
     onRefresh: EventEmitter<any>;
     constructor(dateAdapter: DateAdapter<any>);
     filterConfigBackup: any[];
+    demo: {
+        id: number;
+        value: string;
+    }[];
     ngOnInit(): void;
     onSortChange(item: any): void;
     ngOnChanges(): void;
