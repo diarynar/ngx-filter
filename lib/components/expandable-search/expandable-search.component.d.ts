@@ -1,9 +1,9 @@
-import { Subject } from 'rxjs';
 import { ElementRef, EventEmitter, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import * as i0 from "@angular/core";
 export declare class ExpandableSearchComponent implements OnInit {
-    datas: [];
-    searchsKey: [];
+    datas: never[];
+    searchsKey: never[];
     placeholder: string;
     expandedWitdh: string;
     icon: string;
@@ -14,7 +14,7 @@ export declare class ExpandableSearchComponent implements OnInit {
     showField: boolean;
     searchText: string;
     searchUpdate: Subject<string>;
-    searchElement: ElementRef;
+    searchElement: ElementRef | undefined;
     constructor();
     ngOnInit(): void;
     onExpand(): void;

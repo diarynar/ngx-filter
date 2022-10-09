@@ -1,6 +1,6 @@
 import { EventEmitter, OnInit } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
-import { IFilterConfiguration } from '../../../public-api';
+import { IFilterConfiguration } from '../../interface/FilterInterface';
 import * as i0 from "@angular/core";
 export declare class FilterComponent implements OnInit {
     private dateAdapter;
@@ -12,7 +12,7 @@ export declare class FilterComponent implements OnInit {
     onFilter: EventEmitter<any>;
     onRefresh: EventEmitter<any>;
     constructor(dateAdapter: DateAdapter<any>);
-    filterConfigBackup: any[];
+    filterConfigBackup: any;
     ngOnInit(): void;
     onSortChange(item: any): void;
     ngOnChanges(): void;
