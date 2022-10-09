@@ -17,9 +17,9 @@ import * as i14 from "@angular/material/tooltip";
 import * as i15 from "@angular/material/datepicker";
 import * as i16 from "@angular/material/core";
 import * as i17 from "@angular/material/bottom-sheet";
-export declare class FilterModule {
-    static forRoot(): ModuleWithProviders<FilterModule>;
-    static ɵfac: i0.ɵɵFactoryDeclaration<FilterModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<FilterModule, [typeof i1.NgxFilterLibraryComponent, typeof i2.FilterComponent, typeof i3.ExpandableSearchComponent], [typeof i4.FormsModule, typeof i5.MatFormFieldModule, typeof i6.MatButtonModule, typeof i7.CommonModule, typeof i8.BrowserModule, typeof i9.BrowserAnimationsModule, typeof i4.ReactiveFormsModule, typeof i10.MatIconModule, typeof i11.MatSelectModule, typeof i12.MatInputModule, typeof i13.NowboardIconModule, typeof i14.MatTooltipModule, typeof i15.MatDatepickerModule, typeof i16.MatNativeDateModule, typeof i17.MatBottomSheetModule], [typeof i1.NgxFilterLibraryComponent]>;
-    static ɵinj: i0.ɵɵInjectorDeclaration<FilterModule>;
+export declare class NgxFilterModule {
+    static forRoot(): ModuleWithProviders<NgxFilterModule>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NgxFilterModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<NgxFilterModule, [typeof i1.NgxFilterLibraryComponent, typeof i2.FilterComponent, typeof i3.ExpandableSearchComponent], [typeof i4.FormsModule, typeof i5.MatFormFieldModule, typeof i6.MatButtonModule, typeof i7.CommonModule, typeof i8.BrowserModule, typeof i9.BrowserAnimationsModule, typeof i4.ReactiveFormsModule, typeof i10.MatIconModule, typeof i11.MatSelectModule, typeof i12.MatInputModule, typeof i13.NowboardIconModule, typeof i14.MatTooltipModule, typeof i15.MatDatepickerModule, typeof i16.MatNativeDateModule, typeof i17.MatBottomSheetModule], [typeof i1.NgxFilterLibraryComponent]>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<NgxFilterModule>;
 }

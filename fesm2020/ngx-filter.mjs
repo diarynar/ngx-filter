@@ -287,16 +287,16 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.5", ngImpor
                 type: Output
             }] } });
 
-class FilterModule {
+class NgxFilterModule {
     static forRoot() {
         return {
-            ngModule: FilterModule,
+            ngModule: NgxFilterModule,
             providers: []
         };
     }
 }
-FilterModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.5", ngImport: i0, type: FilterModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
-FilterModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.2.5", ngImport: i0, type: FilterModule, declarations: [NgxFilterLibraryComponent,
+NgxFilterModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "14.2.5", ngImport: i0, type: NgxFilterModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+NgxFilterModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "14.2.5", ngImport: i0, type: NgxFilterModule, declarations: [NgxFilterLibraryComponent,
         FilterComponent,
         ExpandableSearchComponent], imports: [FormsModule,
         MatFormFieldModule,
@@ -311,7 +311,7 @@ FilterModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "14.0.0", version: "
         MatDatepickerModule,
         MatNativeDateModule,
         MatBottomSheetModule], exports: [NgxFilterLibraryComponent] });
-FilterModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.2.5", ngImport: i0, type: FilterModule, imports: [FormsModule,
+NgxFilterModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "14.2.5", ngImport: i0, type: NgxFilterModule, imports: [FormsModule,
         MatFormFieldModule,
         MatButtonModule,
         CommonModule,
@@ -329,7 +329,7 @@ FilterModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "
         MatDatepickerModule,
         MatNativeDateModule,
         MatBottomSheetModule] });
-i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.5", ngImport: i0, type: FilterModule, decorators: [{
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.5", ngImport: i0, type: NgxFilterModule, decorators: [{
             type: NgModule,
             args: [{
                     declarations: [
@@ -371,5 +371,5 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "14.2.5", ngImpor
  * Generated bundle index. Do not edit.
  */
 
-export { ExpandableSearchComponent, FilterComponent, FilterModule, NgxFilterLibraryComponent };
+export { ExpandableSearchComponent, FilterComponent, NgxFilterLibraryComponent, NgxFilterModule };
 //# sourceMappingURL=ngx-filter.mjs.map
