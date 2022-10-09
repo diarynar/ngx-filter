@@ -1,6 +1,6 @@
 import { ModuleWithProviders } from '@angular/core';
 import * as i0 from "@angular/core";
-import * as i1 from "./ngx-filter-library.component";
+import * as i1 from "./ngx-filter.component";
 import * as i2 from "./components/filter-group/filter.component";
 import * as i3 from "./components/expandable-search/expandable-search.component";
 import * as i4 from "@angular/forms";

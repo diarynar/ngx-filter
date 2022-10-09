@@ -1,5 +1,5 @@
 {
-  "name": "ngx-filter-library",
+  "name": "ngx-filter",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": ">=14.x",
@@ -10,11 +10,11 @@
   "dependencies": {
     "tslib": "^2.3.0"
   },
-  "module": "fesm2015/ngx-filter-library.mjs",
-  "es2020": "fesm2020/ngx-filter-library.mjs",
-  "esm2020": "esm2020/ngx-filter-library.mjs",
-  "fesm2020": "fesm2020/ngx-filter-library.mjs",
-  "fesm2015": "fesm2015/ngx-filter-library.mjs",
+  "module": "fesm2015/ngx-filter.mjs",
+  "es2020": "fesm2020/ngx-filter.mjs",
+  "esm2020": "esm2020/ngx-filter.mjs",
+  "fesm2020": "fesm2020/ngx-filter.mjs",
+  "fesm2015": "fesm2015/ngx-filter.mjs",
   "typings": "index.d.ts",
   "exports": {
     "./package.json": {
@@ -22,11 +22,11 @@
     },
     ".": {
       "types": "./index.d.ts",
-      "esm2020": "./esm2020/ngx-filter-library.mjs",
-      "es2020": "./fesm2020/ngx-filter-library.mjs",
-      "es2015": "./fesm2015/ngx-filter-library.mjs",
-      "node": "./fesm2015/ngx-filter-library.mjs",
-      "default": "./fesm2020/ngx-filter-library.mjs"
+      "esm2020": "./esm2020/ngx-filter.mjs",
+      "es2020": "./fesm2020/ngx-filter.mjs",
+      "es2015": "./fesm2015/ngx-filter.mjs",
+      "node": "./fesm2015/ngx-filter.mjs",
+      "default": "./fesm2020/ngx-filter.mjs"
     }
   },
   "sideEffects": false

@@ -4,20 +4,20 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Code scaffolding
 
-Run `ng generate component component-name --project ngx-filter-library` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-filter-library`.
-> Note: Don't forget to add `--project ngx-filter-library` or else it will be added to the default project in your `angular.json` file. 
+Run `ng generate component component-name --project ngx-filter` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-filter`.
+> Note: Don't forget to add `--project ngx-filter` or else it will be added to the default project in your `angular.json` file. 
 
 ## Build
 
-Run `ng build ngx-filter-library` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng build ngx-filter` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Publishing
 
-After building your library with `ng build ngx-filter-library`, go to the dist folder `cd dist/ngx-filter-library` and run `npm publish`.
+After building your library with `ng build ngx-filter`, go to the dist folder `cd dist/ngx-filter` and run `npm publish`.
 
 ## Running unit tests
 
-Run `ng test ngx-filter-library` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test ngx-filter` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Further help
 
