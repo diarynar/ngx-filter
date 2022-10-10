@@ -28,7 +28,7 @@ export interface ISort {
 export interface IDivider {
     type: "divider";
     class?: string;
-    value: any;
+    value?: any;
 }
 export interface IFilterConfiguration {
     filterData: Idate | ISelect | ISort | IDivider;
