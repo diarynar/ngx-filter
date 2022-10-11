@@ -233,7 +233,7 @@ class NgxFilterLibraryComponent {
             if (e.type === 'group') {
                 this.configFilterGroup = e.filterConfig;
                 const results = searchGlobal(e.datas, this.configFilterGlobal);
-                this.onFilter.emit({ ...results, filterConfig: this.configFilterGroup, searchInput: this.searchInput });
+                this.onFilter.emit({ ...results, filterConfig: this.configFilterGroup || e.filterConfig, searchInput: this.searchInput });
             }
             else if (e.type === 'text') {
                 this.configFilterGlobal = e.filterConfig;
