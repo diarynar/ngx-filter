@@ -233,12 +233,13 @@ class NgxFilterLibraryComponent {
             if (e.type === 'group') {
                 this.configFilterGroup = e.filterConfig;
                 const results = searchGlobal(e.datas, this.configFilterGlobal);
-                this.onFilter.emit({ ...results, filterConfig: e.filterConfig });
+                this.onFilter.emit({ ...results, filterConfig: this.configFilterGroup, searchInput: this.searchInput });
             }
             else if (e.type === 'text') {
                 this.configFilterGlobal = e.filterConfig;
+                this.searchInput = e?.searchText || '';
                 const results = onApply(e.datas, this.configFilterGroup);
-                this.onFilter.emit({ ...results, filterConfig: e.filterConfig });
+                this.onFilter.emit({ ...results, filterConfig: this.configFilterGroup, searchInput: this.searchInput });
             }
         }
         else {

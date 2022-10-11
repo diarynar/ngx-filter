@@ -14,6 +14,7 @@ export declare class NgxFilterLibraryComponent implements OnInit {
     configFilterGroup: never[];
     configFilterGlobal: string;
     filterConfigRefresh: string;
+    searchInput: any;
     ngOnInit(): void;
     onFilterData(e: any): void;
     refresh(e: any): void;

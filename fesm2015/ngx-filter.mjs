@@ -234,12 +234,13 @@ class NgxFilterLibraryComponent {
             if (e.type === 'group') {
                 this.configFilterGroup = e.filterConfig;
                 const results = searchGlobal(e.datas, this.configFilterGlobal);
-                this.onFilter.emit(Object.assign(Object.assign({}, results), { filterConfig: e.filterConfig }));
+                this.onFilter.emit(Object.assign(Object.assign({}, results), { filterConfig: this.configFilterGroup, searchInput: this.searchInput }));
             }
             else if (e.type === 'text') {
                 this.configFilterGlobal = e.filterConfig;
+                this.searchInput = (e === null || e === void 0 ? void 0 : e.searchText) || '';
                 const results = onApply(e.datas, this.configFilterGroup);
-                this.onFilter.emit(Object.assign(Object.assign({}, results), { filterConfig: e.filterConfig }));
+                this.onFilter.emit(Object.assign(Object.assign({}, results), { filterConfig: this.configFilterGroup, searchInput: this.searchInput }));
             }
         }
         else {
